@@ -57,19 +57,19 @@ def facebook_authorized(resp):
 @app.route("/logout")
 def logout():
     pop_login_session()
-    return redirect(url_for('index'))
+    return redirect(url_for('/index'))
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
+    return send_from_directory(os.path.join(app.root_path, 'static'), '/ico/favicon.ico')
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('/404.html'), 404
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 # launch
 if __name__ == "__main__":
